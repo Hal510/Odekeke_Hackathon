@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     // 対象の画像を記述
                     child: Image.asset(
-                      'images/top_page.jpg', fit: BoxFit.cover,height: 850
+                      'images/top2.jpeg', fit: BoxFit.cover,height: 850
                     ),
                     ),
                       GestureDetector(
@@ -69,15 +69,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       child:Center(
                           child: Column(
                               children: <Widget>[
-                                Padding(padding: const EdgeInsets.all(170)),
+                                Padding(padding: const EdgeInsets.all(190)),
                               Text(
                                   'おでけけ永和',
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 40,
+                                      fontSize: 50,
                                       shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)]
                                   )),
-                              Padding(padding: const EdgeInsets.all(30)),
+                              Padding(padding: const EdgeInsets.all(50)),
                               AnimatedTextKit(
                                   animatedTexts: [
                                     FadeAnimatedText('~タップして始める~',

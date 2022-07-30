@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:odekeke/main.dart';
+import 'package:odekeke/mewmain.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(
@@ -30,7 +30,7 @@ class _State extends State<denwa> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyApp(),
+                    builder: (context) => MyApp2(),
                     fullscreenDialog: true,
                   ),
                 );
@@ -41,7 +41,7 @@ class _State extends State<denwa> {
     body: Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/top_page.jpg'),
+            image: AssetImage('images/taxi1.jpeg'),
             fit: BoxFit.cover,
           )
       ),    child: Center(

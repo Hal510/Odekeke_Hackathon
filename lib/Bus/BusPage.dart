@@ -26,7 +26,7 @@ class BusPage extends StatelessWidget{
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/top_page.jpg'),
+              image: AssetImage('images/bus2.jpeg'),
               fit: BoxFit.cover,
             )
         ),
@@ -34,12 +34,12 @@ class BusPage extends StatelessWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text('選んで下さい',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30
-                ),
-              ),
+              //const Text('選んで下さい',
+                //style: TextStyle(
+                    //color: Colors.white,
+                    //fontSize: 30
+                //),
+              //),
               Padding(padding: const EdgeInsets.all(15)),
 
 

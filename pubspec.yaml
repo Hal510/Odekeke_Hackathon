@@ -58,6 +58,15 @@ flutter:
     - images/zikoku3.jpg
     - images/zikoku4.jpg
     - images/taxi_splash.png
+    - images/top1.jpeg
+    - images/top2.jpeg
+    - images/top3.jpeg
+    - images/bus1.jpeg
+    - images/bus2.jpeg
+    - images/taxi1.jpeg
+    - images/taxi2.jpeg
+    - images/taxi3.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

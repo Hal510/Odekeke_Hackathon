@@ -29,7 +29,7 @@ class mapor extends StatelessWidget{
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/top_page.jpg'),
+              image: AssetImage('images/bus2.jpeg'),
               fit: BoxFit.cover,
             )
         ),

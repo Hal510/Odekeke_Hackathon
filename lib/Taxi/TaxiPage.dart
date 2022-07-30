@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:odekeke/main.dart';
+import 'package:odekeke/mewmain.dart';
 import 'denwa.dart';
 
 class TaxiPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class TaxiPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyApp(),
+                  builder: (context) => MyApp2(),
                   fullscreenDialog: true,
                 ),
               );
@@ -25,7 +25,7 @@ class TaxiPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/top_page.jpg'),
+              image: AssetImage('images/taxi1.jpeg'),
               fit: BoxFit.cover,
             )
         ),
@@ -33,12 +33,12 @@ class TaxiPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text('選んで下さい',
-                style: TextStyle(
-                    color: Colors.white,
-                  fontSize: 30
-                ),
-              ),
+              //const Text('選んで下さい',
+                //style: TextStyle(
+                    //color: Colors.white,
+                  //fontSize: 30
+                //),
+              //),
               Padding(padding: const EdgeInsets.all(15)),
 
 
