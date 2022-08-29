@@ -1,6 +1,19 @@
-# odekeke
+# お出かけ永和
 
-永和地区の課題解決を助ける高齢者向けバスタクシーアプリです。
-ぜひ使ってみてください
-![7B179617-B3C1-481F-AAA6-2DAD197B29FA_1_201_a](https://user-images.githubusercontent.com/87113276/180641318-eecf8947-6d48-465e-aca0-eb0b1dadf0d9.jpeg)
-![7DC91EF6-6B89-46BB-9E49-F4E3B8D3130E_1_105_c](https://user-images.githubusercontent.com/87113276/180641100-e39fdfc0-b37c-451a-94d8-c388f970905f.jpeg)
+永和地区の交通課題を助ける高齢者向けバスタクシーアプリです。
+
+対象OS  
+iOS/Android
+
+言語  
+Flutter
+
+機能  
+・タクシー会社簡単電話機能  
+・バス停マップ  
+・時刻表確認  
+
+画面概要
+![流れ１](https://user-images.githubusercontent.com/87113276/187273946-02650585-5d4b-404b-b196-51e2bc523021.jpg)
+![流れ２](https://user-images.githubusercontent.com/87113276/187274078-67738cb3-9a33-4f32-af84-a0b5c2d56a97.jpg)
+
