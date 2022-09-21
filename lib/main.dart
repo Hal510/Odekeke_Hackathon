@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     // 対象の画像を記述
                     child: Image.asset(
-                      'images/top2.jpeg', fit: BoxFit.cover,height: 850
+                      'images/top2.jpeg',
+                        fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
                     ),
                     ),
                       GestureDetector(
@@ -69,19 +72,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       child:Center(
                           child: Column(
                               children: <Widget>[
-                                Padding(padding: const EdgeInsets.all(190)),
+                                Padding(padding: const EdgeInsets.all(120)),
                               Text(
-                                  'おでけけ永和',
+                                  'おでかけ永和',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 50,
                                       shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)]
                                   )),
-                              Padding(padding: const EdgeInsets.all(50)),
+                              Padding(padding: const EdgeInsets.all(60)),
                               AnimatedTextKit(
                                   animatedTexts: [
                                     FadeAnimatedText('~タップして始める~',
-                                        textStyle: TextStyle(fontSize: 20, color: Colors.white),
+                                        textStyle: TextStyle(fontSize: 30, color: Colors.white),
                                     )
                                   ]
                               ),
@@ -89,7 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           )
                         )
                       ),
-
                     ]
                 ),
         )

@@ -6,6 +6,8 @@
         android:label="odekeke"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAdWRUHgi7FTDPFowen6nJw_QW40z6tE-Q"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -18,8 +20,7 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
-            <meta-data android:name="com.google.android.geo.API_KEY"
-                       android:value="GOOGLEAPIKey"/>
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

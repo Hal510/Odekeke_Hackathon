@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:odekeke/main.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'mapor.dart';
 
 
@@ -97,7 +97,6 @@ class busT extends StatelessWidget {
                   ),
                 ),
                 Padding(padding: const EdgeInsets.all(5)),
-
               ],
             ),
           ),

@@ -50,17 +50,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 'ご利用の交通手段',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30
+                    fontSize: 40
                 ),
               ),
               Padding(padding: const EdgeInsets.all(15)),
 
               SizedBox(
-                height: 80, // Widgetの高さを指定
+                height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
                   child: const Text('バスを使う',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {
@@ -75,11 +75,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(padding: const EdgeInsets.all(10)),
               SizedBox(
-                height: 80, // Widgetの高さを指定
+                height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
                   child: const Text('タクシーを使う',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {

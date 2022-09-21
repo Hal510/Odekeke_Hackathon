@@ -23,6 +23,8 @@ dependencies:
   http: ^0.13.4
   english_words: ^4.0.0
   animated_text_kit: ^4.2.2
+  network_image_to_byte: ^0.0.1
+
 
 flutter_native_splash:
     image: "images/taxi_splash.png"
@@ -52,6 +54,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/kitakataLine/kitakata/
+    - images/kitakataLine/nishiwakamatsu/
+    - images/oikawaLine/oikawa/
+    - images/oikawaLine/nishiwakamatsu/
     - images/top_page.jpg
     - images/zikoku1.jpg
     - images/zikoku2.jpg
@@ -61,11 +67,11 @@ flutter:
     - images/top1.jpeg
     - images/top2.jpeg
     - images/top3.jpeg
-    - images/bus1.jpeg
     - images/bus2.jpeg
     - images/taxi1.jpeg
     - images/taxi2.jpeg
     - images/taxi3.jpeg
+    - images/busicon.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

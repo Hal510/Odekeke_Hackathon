@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'denwa.dart';
 
 class TaxiPage extends StatelessWidget {
@@ -43,11 +43,11 @@ class TaxiPage extends StatelessWidget {
 
 
               SizedBox(
-                height: 80, // Widgetの高さを指定
+                height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
                   child: const Text('電話をかける',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 35),
                   ),
                   color: Colors.orange,
                   textColor: Colors.white,

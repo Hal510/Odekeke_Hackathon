@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(
@@ -51,22 +51,23 @@ class _State extends State<denwa> {
             mainAxisAlignment: MainAxisAlignment.spaceAround, //つめつめになる
             children: <Widget>[
               Padding(padding: const EdgeInsets.all(10)),
-              Text('かけたい会社を選んで下さい',
+              Text('かける会社を選んで下さい',
               style: TextStyle(
                 fontSize: 30,
-                color: Colors.white,
+                color: Colors.black,
+                backgroundColor: Colors.white,
               )
               ),
               Padding(padding: const EdgeInsets.all(15)),
 
               SizedBox(
-                height: 70,
-                width: double.infinity,
+                height: 80,
+                width: 330,
                 child: RaisedButton(
                   color: Colors.orange,
                   textColor: Colors.white,
                   child: Text('あいづタクシー',
-                  style: TextStyle(fontSize: 25),),
+                  style: TextStyle(fontSize: 35),),
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -87,16 +88,16 @@ class _State extends State<denwa> {
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.all(5)),
+              Padding(padding: const EdgeInsets.all(10)),
 
               SizedBox(
-                height: 70,
-                width: double.infinity,
+                height: 80,
+                width: 330,
                 child: RaisedButton(
                   color: Colors.orange,
                   textColor: Colors.white,
                   child: Text('白虎タクシー',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -117,16 +118,16 @@ class _State extends State<denwa> {
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.all(5)),
+              Padding(padding: const EdgeInsets.all(10)),
 
               SizedBox(
-                height: 70,
-                width: double.infinity,
+                height: 80,
+                width: 330,
                 child: RaisedButton(
                   color: Colors.orange,
                   textColor: Colors.white,
                   child: Text('若松タクシー',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -147,16 +148,16 @@ class _State extends State<denwa> {
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.all(5)),
+              Padding(padding: const EdgeInsets.all(10)),
 
               SizedBox(
-                height: 70,
-                width: double.infinity,
+                height: 80,
+                width: 330,
                 child: RaisedButton(
                   color: Colors.orange,
                   textColor: Colors.white,
                   child: Text('(資)広田タクシー',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -169,23 +170,23 @@ class _State extends State<denwa> {
                               onPressed: () {
                                 var tel = '+0242752321';
                                 _launchUrl2('tel:$tel');
-                              },
+                                },
                             )
                           ],
                         ));
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.all(5)),
+              Padding(padding: const EdgeInsets.all(10)),
 
               SizedBox(
-                height: 70,
-                width: double.infinity,
+                height: 80,
+                width: 330,
                 child: RaisedButton(
                   color: Colors.orange,
                   textColor: Colors.white,
                   child: Text('葵観光タクシー',
-                    style: TextStyle(fontSize: 25),),
+                    style: TextStyle(fontSize: 35),),
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -198,7 +199,7 @@ class _State extends State<denwa> {
                               onPressed: () {
                                 var tel = '+0242371533';
                                 _launchUrl2('tel:$tel');
-                              },
+                                },
                             )
                           ],
                         )
@@ -223,7 +224,7 @@ class _State extends State<denwa> {
       await launch(url);
     } else {
       setState(() {
-        _status = 'Unable to launch url $url';
+        _status = '$urlに電話をかけられませんでした';
       });
     }
   }

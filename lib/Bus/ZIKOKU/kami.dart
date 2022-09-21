@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:odekeke/main.dart';
 
-import '../../mewmain.dart';
+import '../../newmain.dart';
 
 class kami extends StatelessWidget {
 

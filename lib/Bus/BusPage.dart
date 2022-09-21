@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:odekeke/Bus/busT.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'Busmap.dart';
+import 'ZIKOKU/main.dart';
 
 class BusPage extends StatelessWidget{
   @override
@@ -44,11 +45,11 @@ class BusPage extends StatelessWidget{
 
 
               SizedBox(
-                height: 80, // Widgetの高さを指定
+                height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('マップからバス停を探す',
-                    style: TextStyle(fontSize: 25),
+                  child: const Text('近くのバス停',
+                    style: TextStyle(fontSize: 35),
                   ),
                   color: Colors.orange,
                   textColor: Colors.white,
@@ -64,11 +65,11 @@ class BusPage extends StatelessWidget{
               ),
               Padding(padding: const EdgeInsets.all(10)),
               SizedBox(
-                height: 80, // Widgetの高さを指定
+                height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('バス停一覧から選ぶ',
-                    style: TextStyle(fontSize: 25),
+                  child: const Text('時刻表',
+                    style: TextStyle(fontSize: 35),
                   ),
                   color: Colors.orange,
                   textColor: Colors.white,
@@ -76,7 +77,7 @@ class BusPage extends StatelessWidget{
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => busT(),
+                        builder: (context) => zikoku(),
                       ),
                     );
                   },

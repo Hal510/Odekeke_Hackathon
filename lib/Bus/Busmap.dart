@@ -1,11 +1,13 @@
 import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 
 void main() => runApp(const Busmap());
@@ -138,7 +140,7 @@ class MapSampleState extends State<MapSample> {
                     mapType: MapType.normal,
                     initialCameraPosition: CameraPosition(
                       target: _initialCameraPosition,
-                      zoom: 14,
+                      zoom: 15.5,
                     ),
                     onMapCreated: (GoogleMapController controller) {
                       _mapController = controller;
@@ -147,6 +149,7 @@ class MapSampleState extends State<MapSample> {
                           (selectedShop) {
                         return Marker(
                           markerId: MarkerId(selectedShop.uid),
+                          infoWindow: InfoWindow(title: selectedShop.name),  //追加してみただけ
                           position: LatLng(selectedShop.latitude, selectedShop.longitude),
                           icon: BitmapDescriptor.defaultMarker,
                           onTap: () async {
@@ -194,27 +197,32 @@ class MapSampleState extends State<MapSample> {
   List<Widget> _shopTiles() {
     final _shopTiles = shops.map(
           (shop) {
-        return ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.orange),
-          ),
-          onPressed: () => _openUrl(shop.url),
-          child: SizedBox(
-            height: 100,
-            child: Center(
-              child: Column(
-                children: [
-                  Text(shop.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),),
-                  Text(shop.name2),
-                ],
+        return Padding(
+            padding: EdgeInsets.all(5),
+            child: Container(
+              child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.orange),
+            ),
+            onPressed: () => _openUrl(shop.url),
+            child: SizedBox(
+              height: 100,
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(shop.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),),
+                    Text(shop.name2),
+                  ],
+                ),
               ),
             ),
           ),
+            ),
         );
       },
     ).toList();
@@ -236,11 +244,27 @@ class Shop {
 
 
 final shops = [
-  Shop('1', 37.5249745759622, 139.90874062847942, '上高野','バス停１', 'https://www.google.co.jp/maps/dir//%e3%80%92965-0077+%e7%a6%8f%e5%b3%b6%e7%9c%8c%e4%bc%9a%e6%b4%a5%e8%8b%a5%e6%9d%be%e5%b8%82%e9%ab%98%e9%87%8e%e7%94%ba%e5%a4%a7%e5%ad%97%e4%b8%8a%e9%ab%98%e9%87%8e%e6%9d%91%e5%86%85+%e4%b8%8a%e9%ab%98%e9%87%8e/@37.5204467,139.9226675,14z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aacd555a20247:0xb3005224cea4485c!3e0?hl=ja'),
-  Shop('2', 37.536445247194, 139.90240521600361, '下高野','バス停２', 'https://www.google.co.jp/maps/dir//%e3%80%92965-0078+%e7%a6%8f%e5%b3%b6%e7%9c%8c%e4%bc%9a%e6%b4%a5%e8%8b%a5%e6%9d%be%e5%b8%82%e9%ab%98%e9%87%8e%e7%94%ba%e5%a4%a7%e5%ad%97%e6%9f%b3%e5%b7%9d%e4%b8%8b%e9%ab%98%e9%87%8e+%e4%b8%8b%e9%ab%98%e9%87%8e/@37.5266428,139.9203279,13z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aad372e8de82b:0xc0cc86620d17c7d7!3e0?hl=ja'),
-  Shop('3', 37.5215, 139.9391, 'バス停３','バス停３', 'https://www.google.co.jp/maps/dir//〒965-0077+福島県会津若松市高野町大字上高野村内+上高野/@37.5204467,139.9226675,14z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aacd555a20247:0xb3005224cea4485c!3e0?hl=ja'),
-  Shop('4', 37.5235, 139.9391, 'バス停４','バス停４', 'https://www.google.co.jp/maps/dir//〒965-0077+福島県会津若松市高野町大字上高野村内+上高野/@37.5204467,139.9226675,14z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aacd555a20247:0xb3005224cea4485c!3e0?hl=ja'),
-  Shop('5', 37.5225, 139.9381, 'バス停５','バス停５', 'https://www.google.co.jp/maps/dir//〒965-0077+福島県会津若松市高野町大字上高野村内+上高野/@37.5204467,139.9226675,14z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aacd555a20247:0xb3005224cea4485c!3e0?hl=ja'),
+  Shop('1',  37.5212909759392,   139.91835264189348, '会津アピオ入口','あいづあぴおいりぐち',   'https://www.google.co.jp/maps/dir//%E3%80%92965-0052+%E7%A6%8F%E5%B3%B6%E7%9C%8C%E4%BC%9A%E6%B4%A5%E8%8B%A5%E6%9D%BE%E5%B8%82%E7%94%BA%E5%8C%97%E7%94%BA%E5%A4%A7%E5%AD%97%E5%A7%8B%E5%B1%8B%E6%95%B7+%E4%BC%9A%E6%B4%A5%E3%82%A2%E3%83%94%E3%82%AA%E5%85%A5%E5%8F%A3/@37.5207369,139.9159908,16.92z/data=!4m8!4m7!1m0!1m5!1m1!1s0x5f8aacd29417ef0b:0xb70a6d2c1699143c!2m2!1d139.9182362!2d37.5206089?hl=ja'),
+  Shop('2',  37.52203979323528,  139.91719392762462, '会津アピオ中央','あいづあぴおちゅうおう', 'https://www.google.co.jp/maps/dir//%E3%80%92965-0052+%E7%A6%8F%E5%B3%B6%E7%9C%8C%E4%BC%9A%E6%B4%A5%E8%8B%A5%E6%9D%BE%E5%B8%82%E7%94%BA%E5%8C%97%E7%94%BA%E5%A4%A7%E5%AD%97%E5%A7%8B%E5%B1%8B%E6%95%B7+%E4%BC%9A%E6%B4%A5%E3%82%A2%E3%83%94%E3%82%AA%E5%85%A5%E5%8F%A3/@37.5207369,139.9159908,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x5f8aacd29417ef0b:0xb70a6d2c1699143c!2m2!1d139.9182362!2d37.5206089?hl=ja'),
+  Shop('3',  37.52029058809752,  139.91561474640025, '会津アピオ南口','あいづあぴおみなみぐち', 'https://www.google.com/maps/search/?api=1&query=${37.52029058809752},${139.91561474640025}'),
+  Shop('4',  37.5259671970783,   139.92163358502958, '会津丸運前','あいづまるうんまえ',        'https://www.google.com/maps/search/?api=1&query=${37.5259671970783},${139.92163358502958}'),
+  Shop('5',  37.51961008210341,  139.92580852090927, '荒久田','あらくだ',                   'https://www.google.com/maps/search/?api=1&query=${37.51961008210341},${139.92580852090927}'),
+  Shop('6',  37.51898671455384,  139.92861545223124, '上荒久田','かみあらくだ',              'https://www.google.com/maps/search/?api=1&query=${37.51898671455384},${139.92861545223124}'),
+  Shop('7',  37.5249745759622,   139.90874062847942, '上高野','かみこうや',                 'https://www.google.co.jp/maps/dir//%e3%80%92965-0077+%e7%a6%8f%e5%b3%b6%e7%9c%8c%e4%bc%9a%e6%b4%a5%e8%8b%a5%e6%9d%be%e5%b8%82%e9%ab%98%e9%87%8e%e7%94%ba%e5%a4%a7%e5%ad%97%e4%b8%8a%e9%ab%98%e9%87%8e%e6%9d%91%e5%86%85+%e4%b8%8a%e9%ab%98%e9%87%8e/@37.5204467,139.9226675,14z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x5f8aacd555a20247:0xb3005224cea4485c!3e0?hl=ja'),
+  Shop('8',  37.54498942976063,  139.89708424641123, '上森台','かみもりだい',                'https://www.google.com/maps/search/?api=1&query=${37.54498942976063},${139.89708424641123}'),
+  Shop('9',  37.54395424689345,  139.91282026175395, '木流','きながし',                     'https://www.google.com/maps/search/?api=1&query=${37.54395424689345},${139.91282026175395}'),
+  Shop('10', 37.540996677896935, 139.89790826135345, '界沢','さかいざわ',                   'https://www.google.com/maps/search/?api=1&query=${37.540996677896935},${139.89790826135345}'),
+  Shop('11', 37.52277136592879,  139.92378753035743, '下荒久田','しもあらくだ',              'https://www.google.com/maps/search/?api=1&query=${37.52277136592879},${139.92378753035743}'),
+  Shop('12', 37.536445247194,    139.90240521600361, '下高野','しもこうや',                 'https://www.google.com/maps/search/?api=1&query=${37.536445247194},${139.90240521600361}'),
+  Shop('13', 37.53813824346729,  139.8987665682193,  '十里柳','じゅうりやなぎ',              'https://www.google.com/maps/search/?api=1&query=${37.53813824346729},${139.8987665682193}'),
+  Shop('14', 37.51808015731422,  139.91188325084337, '達摩','だるま',                      'https://www.google.com/maps/search/?api=1&query=${37.51808015731422},${139.91188325084337}'),
+  Shop('15', 37.5358756293441,   139.9160433407291,  '鶴沼入口','つるぬまいりぐち',           'https://www.google.com/maps/search/?api=1&query=${37.5358756293441},${139.9160433407291}'),
+  Shop('16', 37.51893337062692,  139.9150945924296,  '中の明','なかのみょう',                'https://www.google.com/maps/search/?api=1&query=${37.51893337062692},${139.9150945924296}'),
+  Shop('17', 37.52916195683988,  139.931286285031,   '中前田','なかまえだ',                 'https://www.google.com/maps/search/?api=1&query=${37.52916195683988},${139.931286285031}'),
+  Shop('18', 37.53198571795584,  139.91577611104472, '沼木','ぬまぎ',                      'https://www.google.com/maps/search/?api=1&query=${37.53198571795584},${139.91577611104472}'),
+  Shop('19', 37.53076054001056,  139.91880164274676, '沼木倉庫前','ぬまぎそうこまえ',         'https://www.google.com/maps/search/?api=1&query=${37.53076054001056},${139.91880164274676}'),
+  Shop('20', 37.540449887528666, 139.91408630689486, '平塚','ひらつか',                    'https://www.google.com/maps/search/?api=1&query=${37.540449887528666},${139.91408630689486}'),
+  //Shop('21', 37.5215, 139.9391, 'リオンドール会津アピオ店前','りおんどーるあいづあぴおてんまえ', 'https://www.google.com/maps/search/?api=1&query=${37.519474},${139.9156577}'),
 ];
 
 
@@ -255,3 +279,4 @@ void _openUrl(url) async {
     throw 'このURLにはアクセスできません';
   }
 }
+

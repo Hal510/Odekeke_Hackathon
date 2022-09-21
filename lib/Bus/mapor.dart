@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:odekeke/Bus/ZIKOKU/kami.dart';
 import 'package:odekeke/Bus/busT.dart';
-import 'package:odekeke/mewmain.dart';
+import 'package:odekeke/newmain.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 
 class mapor extends StatelessWidget{
