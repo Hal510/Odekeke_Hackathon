@@ -14,5 +14,5 @@ Flutter
 ・時刻表確認  
 
 画面概要
-<img width="975" alt="スクリーンショット 2022-10-19 3 47 50" src="https://user-images.githubusercontent.com/87113276/196518113-8cb86efd-e4d8-4937-86d4-da3c6c5d765e.png">
-<img width="975" alt="スクリーンショット 2022-10-19 3 48 10" src="https://user-images.githubusercontent.com/87113276/196518119-4dadac66-6e8e-45b3-bde9-bd5eaddefd14.png">
+<img width="1435" alt="スクリーンショット 2022-10-19 3 50 56" src="https://user-images.githubusercontent.com/87113276/196518693-571956b1-2db4-4864-9a20-1f8697e85af8.png">
+<img width="1435" alt="スクリーンショット 2022-10-19 3 51 46" src="https://user-images.githubusercontent.com/87113276/196518712-d55d6bf8-f351-460f-8fb3-72001e7c2dbc.png">
