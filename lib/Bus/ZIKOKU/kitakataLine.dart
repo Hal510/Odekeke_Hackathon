@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../../newmain.dart';
-import 'kitakataJikoku.dart';
+import 'package:odekeke/Common/CommonAppBar.dart';
+import 'package:odekeke/Common/LineButton.dart';
 
 
 class KitakataLinePage extends StatefulWidget {
   const KitakataLinePage();
-
 
   @override
   State<KitakataLinePage> createState() => _KitakataLinePageState();
@@ -16,23 +14,9 @@ class _KitakataLinePageState extends State<KitakataLinePage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-          title: Text('塩川・喜多方線'),
-          centerTitle: true,
-          actions: [IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyApp2(),
-                  fullscreenDialog: true,
-                ),
-              );
-            },
-            icon: Icon(Icons.home),
-          ),]
+      appBar: CommonAppBar(
+        title: Text('塩川・喜多方線'), appBar: AppBar(),
       ),
       body: Container(
           decoration: const BoxDecoration(
@@ -46,183 +30,30 @@ class _KitakataLinePageState extends State<KitakataLinePage> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Padding(padding: EdgeInsets.all(15)),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: const Text('上荒久田',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => KitakataJikokuPage('上荒久田'),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                      Padding(padding: EdgeInsets.all(15)),
+                      KitakataLineButton(busStopTitle: '上荒久田'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('荒久田',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('荒久田'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '荒久田'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('下荒久田',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('下荒久田'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '下荒久田'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('会津丸運前',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('会津丸運前'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '会津丸運前'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('沼木倉庫前',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('沼木倉庫前'))
-                            );
-                          },
-                        ),
-                      ),
-
+                      KitakataLineButton(busStopTitle: '沼木倉庫前'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('鶴沼入口',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('鶴沼入口'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '鶴沼入口'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('会津アピオ入口',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('会津アピオ入口'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '会津アピオ入口'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('沼木',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('沼木'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '沼木'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('平塚',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('平塚'))
-                            );
-                          },
-                        ),
-                      ),
+                      KitakataLineButton(busStopTitle: '平塚'),
                       Text('|',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight:FontWeight.bold),),
-                      SizedBox(
-                        height: 80, // Widgetの高さを指定
-                        width: 320, // Widgetの幅を指定
-                        child: RaisedButton(
-                          child: Text('木流',
-                            style: TextStyle(fontSize: 35),),
-                          color: Colors.orange,
-                          textColor: Colors.white,
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => KitakataJikokuPage('木流'))
-                            );
-                          },
-                        ),
-                      ),
-                    ]
+                      KitakataLineButton(busStopTitle: '木流'),
+                    ],
                 ),
-              )
-          )
+              ),
+          ),
       ),
     );
   }

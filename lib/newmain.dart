@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:odekeke/Bus/busT.dart';
 import 'Bus/BusPage.dart';
 import 'Taxi/TaxiPage.dart';
 
@@ -12,7 +11,7 @@ class MyApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'taxi_app',
+      title: 'お出かけ永和',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -31,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,21 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text(
-                'ご利用の交通手段',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40
-                ),
-              ),
+              Text('ご利用の交通手段', style: TextStyle(color: Colors.white, fontSize: 40),),
               Padding(padding: const EdgeInsets.all(15)),
-
               SizedBox(
                 height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('バスを使う',
-                    style: TextStyle(fontSize: 35),),
+                  child: const Text('バスを使う', style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {
@@ -78,14 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 90, // Widgetの高さを指定
                 width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('タクシーを使う',
-                    style: TextStyle(fontSize: 35),),
+                  child: const Text('タクシーを使う', style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
+                    Navigator.push(context, MaterialPageRoute(
                         builder: (context) => TaxiPage(),
                       ),
                     );
@@ -97,19 +84,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => busT(),
-              fullscreenDialog: true,
-            ),
-          );
-        },
-        child: Icon(Icons.bus_alert),
-        backgroundColor: Colors.black,
-      ),
+      //floatingActionButton: FloatingActionButton(
+        //onPressed: () {
+          //Navigator.push(
+            //context,
+      //MaterialPageRoute(
+      //builder: (context) => busT(),
+      //fullscreenDialog: true,
+      //),
+    //);
+      //},
+      //child: Icon(Icons.bus_alert),
+      //backgroundColor: Colors.black,
+      //),
+
     );
   }
 }

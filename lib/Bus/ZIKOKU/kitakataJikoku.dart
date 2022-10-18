@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../newmain.dart';
+import 'package:odekeke/Common/CommonAppBar.dart';
+
 
 class KitakataJikokuPage extends StatefulWidget {
   KitakataJikokuPage(this.busStop);
@@ -12,49 +13,30 @@ class KitakataJikokuPage extends StatefulWidget {
 class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
 
   final _controller = PageController(initialPage: 0);
-
   var _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(widget.busStop),
-            actions: [IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyApp2(),
-                    fullscreenDialog: true,
-                  ),
-                );
-              },
-              icon: Icon(Icons.home),
-            ),]
+        appBar: CommonAppBar(
+          title: Text(widget.busStop), appBar: AppBar(),
         ),
-
         body: Container(
-        decoration: const BoxDecoration(
-        image: DecorationImage(
-        image: AssetImage('images/bus2.jpeg'),
-          fit: BoxFit.cover,
-        )
-        ),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/bus2.jpeg'),
+                fit: BoxFit.cover,
+              )
+          ),
           child:PageView(
-          controller : _controller,
-          children: <Widget>[
-            SingleChildScrollView(
+            controller : _controller,
+            children: <Widget>[
+              SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    const Padding(padding: EdgeInsets.all(15)),
-                    const Text('平日',
-                      style: TextStyle(
-                          fontSize: 45,
-                          backgroundColor: Colors.white
-                      ),
-                    ),
-                    const Padding(padding: EdgeInsets.all(15)),
+                    Padding(padding: EdgeInsets.all(15)),
+                    Text('平日', style: TextStyle(fontSize: 45, backgroundColor: Colors.white),),
+                    Padding(padding: EdgeInsets.all(15)),
                     if(widget.busStop == '上荒久田')...[
                       const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/kamiarakuda1.png'))
                     ]
@@ -80,19 +62,14 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
                                 const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/numagi1.png'))
                                 ]
                                 else if(widget.busStop == '平塚')...[
-                                  const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/hiratuka1.png'))
+                                  const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/hiratsuka1.png'))
                                   ]
                                   else if(widget.busStop == '木流')...[
                                     const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/kinagashi1.png'))
                                     ],
-                    const Padding(padding: EdgeInsets.all(15)),
-                    const Text('土・日・祝',
-                      style: TextStyle(
-                          fontSize: 45,
-                          backgroundColor: Colors.white
-                      ),
-                    ),
-                    const Padding(padding: EdgeInsets.all(15)),
+                    Padding(padding: EdgeInsets.all(15)),
+                    Text('土・日・祝', style: TextStyle(fontSize: 45, backgroundColor: Colors.white),),
+                    Padding(padding: EdgeInsets.all(15)),
                     if(widget.busStop == '上荒久田')...[
                       const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/kamiarakuda2.png'))
                     ]
@@ -112,13 +89,13 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
                             const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/tsurunumairiguchi2.png'))
                             ]
                             else if(widget.busStop == '会津アピオ入口')...[
-                              const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/aizuapioiriguchi2.png'))
+                              const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/aizuapioiriguchi1.png'))
                               ]
                               else if(widget.busStop == '沼木')...[
-                                const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/numagi2.png'))
+                                const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/numagi1.png'))
                                 ]
                                 else if(widget.busStop == '平塚')...[
-                                  const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/hiratuka2.png'))
+                                  const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/hiratsuka2.png'))
                                   ]
                                   else if(widget.busStop == '木流')...[
                                     const Image(image: AssetImage('images/kitakataLine/nishiwakamatsu/kinagashi2.png'))
@@ -129,14 +106,9 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
               SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    const Padding(padding: EdgeInsets.all(15)),
-                    const Text('平日',
-                      style: TextStyle(
-                          fontSize: 45,
-                          backgroundColor: Colors.white
-                      ),
-                    ),
-                    const Padding(padding: EdgeInsets.all(15)),
+                    Padding(padding: EdgeInsets.all(15)),
+                    Text('平日', style: TextStyle(fontSize: 45, backgroundColor: Colors.white),),
+                    Padding(padding: EdgeInsets.all(15)),
                     if(widget.busStop == '上荒久田')...[
                       const Image(image: AssetImage('images/kitakataLine/kitakata/kamiarakuda1.png'))
                     ]
@@ -162,19 +134,14 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
                                   const Image(image: AssetImage('images/kitakataLine/kitakata/numagi1.png'))
                                 ]
                                 else if(widget.busStop == '平塚')...[
-                                    const Image(image: AssetImage('images/kitakataLine/kitakata/hiratuka1.png'))
+                                    const Image(image: AssetImage('images/kitakataLine/kitakata/hiratsuka1.png'))
                                   ]
                                   else if(widget.busStop == '木流')...[
                                       const Image(image: AssetImage('images/kitakataLine/kitakata/kinagashi1.png'))
                                     ],
-                    const Padding(padding: EdgeInsets.all(15)),
-                    const Text('土・日・祝',
-                      style: TextStyle(
-                          fontSize: 45,
-                          backgroundColor: Colors.white
-                      ),
-                    ),
-                    const Padding(padding: EdgeInsets.all(15)),
+                    Padding(padding: EdgeInsets.all(15)),
+                    Text('土・日・祝', style: TextStyle(fontSize: 45, backgroundColor: Colors.white)),
+                    Padding(padding: EdgeInsets.all(15)),
                     if(widget.busStop == '上荒久田')...[
                       const Image(image: AssetImage('images/kitakataLine/kitakata/kamiarakuda2.png'))
                     ]
@@ -194,13 +161,13 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
                               const Image(image: AssetImage('images/kitakataLine/kitakata/tsurunumairiguchi2.png'))
                             ]
                             else if(widget.busStop == '会津アピオ入口')...[
-                                const Image(image: AssetImage('images/kitakataLine/kitakata/aizuapioiriguchi2.png'))
+                                const Image(image: AssetImage('images/kitakataLine/kitakata/aizuapioiriguchi1.png'))
                               ]
                               else if(widget.busStop == '沼木')...[
-                                  const Image(image: AssetImage('images/kitakataLine/kitakata/numagi2.png'))
+                                  const Image(image: AssetImage('images/kitakataLine/kitakata/numagi1.png'))
                                 ]
                                 else if(widget.busStop == '平塚')...[
-                                    const Image(image: AssetImage('images/kitakataLine/kitakata/hiratuka2.png'))
+                                    const Image(image: AssetImage('images/kitakataLine/kitakata/hiratsuka2.png'))
                                   ]
                                   else if(widget.busStop == '木流')...[
                                       const Image(image: AssetImage('images/kitakataLine/kitakata/kinagashi2.png'))
@@ -208,19 +175,20 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
                   ],
                 ),
               ),
-          ],
-          onPageChanged: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-        ),
+            ],
+            onPageChanged: (index) {
+              setState(() {
+                _currentIndex = index;
+              }
+              );
+              },
+          ),
         ),
 
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 10,
           selectedFontSize: 20,
-          items: const[
+          items: [
             BottomNavigationBarItem(
               icon: SizedBox.shrink(),
               label: "西若松駅方面",
@@ -235,8 +203,8 @@ class _KitakataJikokuPageState extends State<KitakataJikokuPage>{
             setState(() {
               _controller.jumpToPage(index);
             });
-          },
-        )
+            },
+        ),
     );
   }
 }

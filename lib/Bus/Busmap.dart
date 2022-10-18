@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:odekeke/newmain.dart';
+import 'package:odekeke/Common/CommonAppBar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -18,21 +15,9 @@ class Busmap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('バス停を探す'),centerTitle: true,
-          actions: [IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyApp2(),
-                  fullscreenDialog: true,
-                ),
-              );
-            },
-            icon: Icon(Icons.home),
-          ),],
-          automaticallyImplyLeading: true),
-
+      appBar: CommonAppBar(
+        title: Text('バス停を探す'), appBar: AppBar(),
+      ),
       body: MapSample(),
     );
   }
@@ -53,8 +38,6 @@ class MapSampleState extends State<MapSample> {
   late LatLng _initialCameraPosition;
   late bool _loading;
 
-
-
   final _pageController = PageController(
     viewportFraction: 0.85,//0.85くらいで端っこに別のカードが見えてる感じになる
   );
@@ -66,20 +49,16 @@ class MapSampleState extends State<MapSample> {
       children: <Widget>[
         _mapSection(),
         _cardSection(),
+
+        //↓青部分の位置を定義
         Positioned(
-          top: 550.0,
+          bottom: 155.0,
           width: 390.0,
           height: 35.0,
           child: Container(
+            alignment: Alignment.center,
             color: Colors.blue,
-            width: 200.0,
-            height: 300.0,
-            child: Text(
-              '               ↓ここを押すと案内画面↓',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white),
-            ),
+            child: Text('↓ここを押すと案内画面↓', style: TextStyle(fontSize: 20, color: Colors.white),),
           ),
         ),
       ],
@@ -108,7 +87,8 @@ class MapSampleState extends State<MapSample> {
       _initialCameraPosition = LatLng(position.latitude, position.longitude);
       _loading = false;
       print(position);
-    });
+    }
+    );
   }
 
   Widget _textSection() {
@@ -123,7 +103,6 @@ class MapSampleState extends State<MapSample> {
     );
   }
 
-
   Widget _mapSection() {
     return Scaffold(
         body: _loading
@@ -136,7 +115,6 @@ class MapSampleState extends State<MapSample> {
                     myLocationButtonEnabled: true,
                     myLocationEnabled: true,
                     padding: EdgeInsets.only(bottom: 155.0,),
-
                     mapType: MapType.normal,
                     initialCameraPosition: CameraPosition(
                       target: _initialCameraPosition,
@@ -144,22 +122,22 @@ class MapSampleState extends State<MapSample> {
                     ),
                     onMapCreated: (GoogleMapController controller) {
                       _mapController = controller;
-                    },
+                      },
                     markers: shops.map(
                           (selectedShop) {
-                        return Marker(
-                          markerId: MarkerId(selectedShop.uid),
-                          infoWindow: InfoWindow(title: selectedShop.name),  //追加してみただけ
-                          position: LatLng(selectedShop.latitude, selectedShop.longitude),
-                          icon: BitmapDescriptor.defaultMarker,
-                          onTap: () async {
+                            return Marker(
+                              markerId: MarkerId(selectedShop.uid),
+                              infoWindow: InfoWindow(title: selectedShop.name),  //追加してみただけ
+                              position: LatLng(selectedShop.latitude, selectedShop.longitude),
+                              icon: BitmapDescriptor.defaultMarker,
+                              onTap: () async {
                             //タップしたマーカー(shop)のindexを取得
-                            final index = shops.indexWhere((shop) => shop == selectedShop);
+                                final index = shops.indexWhere((shop) => shop == selectedShop);
                             //タップしたお店がPageViewで表示されるように飛ばす
-                            _pageController.jumpToPage(index);
-                          },
-                        );
-                      },
+                                _pageController.jumpToPage(index);
+                                },
+                            );
+                            },
                     ).toSet(),
                   ),
                 ]
@@ -201,30 +179,25 @@ class MapSampleState extends State<MapSample> {
             padding: EdgeInsets.all(5),
             child: Container(
               child: ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.orange),
-            ),
-            onPressed: () => _openUrl(shop.url),
-            child: SizedBox(
-              height: 100,
-              child: Center(
-                child: Column(
-                  children: [
-                    Text(shop.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.white,
-                      ),),
-                    Text(shop.name2),
-                  ],
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.orange),
+                ),
+                onPressed: () => _openUrl(shop.url),
+                child: SizedBox(
+                  height: 100,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text(shop.name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white,),),
+                        Text(shop.name2),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-            ),
         );
-      },
+        },
     ).toList();
     return _shopTiles;
   }
@@ -264,7 +237,6 @@ final shops = [
   Shop('18', 37.53198571795584,  139.91577611104472, '沼木','ぬまぎ',                      'https://www.google.com/maps/search/?api=1&query=${37.53198571795584},${139.91577611104472}'),
   Shop('19', 37.53076054001056,  139.91880164274676, '沼木倉庫前','ぬまぎそうこまえ',         'https://www.google.com/maps/search/?api=1&query=${37.53076054001056},${139.91880164274676}'),
   Shop('20', 37.540449887528666, 139.91408630689486, '平塚','ひらつか',                    'https://www.google.com/maps/search/?api=1&query=${37.540449887528666},${139.91408630689486}'),
-  //Shop('21', 37.5215, 139.9391, 'リオンドール会津アピオ店前','りおんどーるあいづあぴおてんまえ', 'https://www.google.com/maps/search/?api=1&query=${37.519474},${139.9156577}'),
 ];
 
 

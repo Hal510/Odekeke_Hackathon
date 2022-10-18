@@ -22,79 +22,60 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //title: Text(widget.title,
-      //フォントstyle: TextStyle(shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)])),
-      //  ),
-      //),
         body: Center(
-                child: Stack(
-                    children: <Widget>[GestureDetector(
+          child: Stack(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => MyApp2(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(child: child, opacity: animation);
+                          },
+                      ),
+                    );
+                    },
+                  child: Image.asset('images/top2.jpeg',
+                    fit: BoxFit.cover,
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                ),
+                GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) =>
-                              MyApp2(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
+                          pageBuilder: (context, animation, secondaryAnimation) => MyApp2(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             return FadeTransition(child: child, opacity: animation);
-                          },
+                            },
                         ),
                       );
-                    },
-                    // 対象の画像を記述
-                    child: Image.asset(
-                      'images/top2.jpeg',
-                        fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) =>
-                                  MyApp2(),
-                              transitionsBuilder:
-                                  (context, animation, secondaryAnimation, child) {
-                                return FadeTransition(child: child, opacity: animation);
-                              },
-                            ),
-                          );
-                        },
-                      child:Center(
-                          child: Column(
-                              children: <Widget>[
-                                Padding(padding: const EdgeInsets.all(120)),
-                              Text(
-                                  'おでかけ永和',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 50,
-                                      shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)]
-                                  )),
+                      },
+                    child:Center(
+                        child: Column(
+                            children: <Widget>[
+                              Padding(padding: const EdgeInsets.all(120)),
+                              Text('おでかけ永和', style: TextStyle(color: Colors.white, fontSize: 50, shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)])),
                               Padding(padding: const EdgeInsets.all(60)),
                               AnimatedTextKit(
                                   animatedTexts: [
-                                    FadeAnimatedText('~タップして始める~',
-                                        textStyle: TextStyle(fontSize: 30, color: Colors.white),
-                                    )
+                                    FadeAnimatedText('~タップして始める~', textStyle: TextStyle(fontSize: 30, color: Colors.white))
                                   ]
                               ),
-                              ]
-                          )
-                        )
-                      ),
-                    ]
+                            ]
+                        ),
+                    ),
                 ),
-        )
+              ],
+          ),
+        ),
     );
   }
 }
