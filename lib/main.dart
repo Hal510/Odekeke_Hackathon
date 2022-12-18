@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:odekeke/newmain.dart';
+import 'package:odekeke/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:MyHomePage(),
+      title: 'お出かけ永和',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const MyHomePage(title: 'お出かけ永和',),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -33,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => MyApp2(),
+                        pageBuilder: (context, animation, secondaryAnimation) => const Home(),
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           return FadeTransition(child: child, opacity: animation);
                           },
@@ -51,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => MyApp2(),
+                          pageBuilder: (context, animation, secondaryAnimation) => const Home(),
                           transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             return FadeTransition(child: child, opacity: animation);
                             },
@@ -61,12 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child:Center(
                         child: Column(
                             children: <Widget>[
-                              Padding(padding: const EdgeInsets.all(120)),
-                              Text('おでかけ永和', style: TextStyle(color: Colors.white, fontSize: 50, shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)])),
-                              Padding(padding: const EdgeInsets.all(60)),
+                              const Padding(padding: EdgeInsets.all(120)),
+                              const Text('おでかけ永和', style: TextStyle(color: Colors.white, fontSize: 50, shadows: <Shadow>[Shadow(offset: Offset(5.0, 10.0), blurRadius: 2.0, color: Colors.black)])),
+                              const Padding(padding: EdgeInsets.all(60)),
                               AnimatedTextKit(
                                   animatedTexts: [
-                                    FadeAnimatedText('~タップして始める~', textStyle: TextStyle(fontSize: 30, color: Colors.white))
+                                    FadeAnimatedText('~タップして始める~', textStyle: const TextStyle(fontSize: 30, color: Colors.white))
                                   ]
                               ),
                             ]

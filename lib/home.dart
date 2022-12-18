@@ -1,59 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:odekeke/Common/CommonAppBar.dart';
-import 'kitakataLine.dart';
-import 'oikawaLine.dart';
+import 'package:odekeke/Taxi/tel.dart';
+import 'Bus/tab.dart';
 
 
-class zikoku extends StatelessWidget {
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CommonAppBar(
-        title: Text('利用する線を選ぶ'), appBar: AppBar(),
-      ),
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/bus2.jpeg'),
+              image: AssetImage('images/top1.jpeg'),
               fit: BoxFit.cover,
-            ),
+            )
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const Text('ご利用の交通手段', style: TextStyle(color: Colors.white, fontSize: 40),),
+              const Padding(padding: EdgeInsets.all(15)),
               SizedBox(
-                height: 90,
-                width: 320,
+                height: 90, // Widgetの高さを指定
+                width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('笈川線',
-                    style: TextStyle(fontSize: 35),),
+                  child: const Text('バスを使う', style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => OikawaLinePage(),
+                        builder: (context) => const MapTab(),
                       ),
                     );
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.all(10)),
+              const Padding(padding: EdgeInsets.all(10)),
               SizedBox(
-                height: 90,
-                width: 320,
+                height: 90, // Widgetの高さを指定
+                width: 320, // Widgetの幅を指定
                 child: RaisedButton(
-                  child: const Text('塩川・喜多方線',
-                    style: TextStyle(fontSize: 35),),
+                  child: const Text('タクシーを使う', style: TextStyle(fontSize: 35),),
                   color: Colors.orange,
                   textColor: Colors.white,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => KitakataLinePage(),
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const tel(),
                       ),
                     );
                   },

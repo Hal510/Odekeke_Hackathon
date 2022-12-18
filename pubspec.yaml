@@ -24,6 +24,7 @@ dependencies:
   english_words: ^4.0.0
   animated_text_kit: ^4.2.2
   network_image_to_byte: ^0.0.1
+  fluttertoast: ^8.1.2
 
 
 flutter_native_splash:
@@ -58,11 +59,6 @@ flutter:
     - images/kitakataLine/nishiwakamatsu/
     - images/oikawaLine/oikawa/
     - images/oikawaLine/nishiwakamatsu/
-    - images/top_page.jpg
-    - images/zikoku1.jpg
-    - images/zikoku2.jpg
-    - images/zikoku3.jpg
-    - images/zikoku4.jpg
     - images/taxi_splash.png
     - images/top1.jpeg
     - images/top2.jpeg
